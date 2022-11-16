@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E7DBD78629251AE8007316F6 /* PagineBiancheReworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD78529251AE8007316F6 /* PagineBiancheReworkApp.swift */; };
-		E7DBD78829251AE8007316F6 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD78729251AE8007316F6 /* Persistence.swift */; };
 		E7DBD78B29251AE8007316F6 /* PagineBiancheRework.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD78929251AE8007316F6 /* PagineBiancheRework.xcdatamodeld */; };
 		E7DBD78D29251AE8007316F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD78C29251AE8007316F6 /* ContentView.swift */; };
 		E7DBD78F29251AE9007316F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7DBD78E29251AE9007316F6 /* Assets.xcassets */; };
@@ -16,6 +15,9 @@
 		E7DBD79D29251AE9007316F6 /* PagineBiancheReworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD79C29251AE9007316F6 /* PagineBiancheReworkTests.swift */; };
 		E7DBD7A729251AE9007316F6 /* PagineBiancheReworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD7A629251AE9007316F6 /* PagineBiancheReworkUITests.swift */; };
 		E7DBD7A929251AE9007316F6 /* PagineBiancheReworkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD7A829251AE9007316F6 /* PagineBiancheReworkUITestsLaunchTests.swift */; };
+		E7DBD7B629251F55007316F6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD7B529251F55007316F6 /* SearchView.swift */; };
+		E7DBD7B9292523D9007316F6 /* SearchModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD7B8292523D9007316F6 /* SearchModal.swift */; };
+		E7DBD7BC29254935007316F6 /* SpecialResearchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBD7BB29254935007316F6 /* SpecialResearchMainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 /* Begin PBXFileReference section */
 		E7DBD78229251AE8007316F6 /* PagineBiancheRework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PagineBiancheRework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DBD78529251AE8007316F6 /* PagineBiancheReworkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagineBiancheReworkApp.swift; sourceTree = "<group>"; };
-		E7DBD78729251AE8007316F6 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E7DBD78A29251AE8007316F6 /* PagineBiancheRework.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PagineBiancheRework.xcdatamodel; sourceTree = "<group>"; };
 		E7DBD78C29251AE8007316F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E7DBD78E29251AE9007316F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		E7DBD7A229251AE9007316F6 /* PagineBiancheReworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PagineBiancheReworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7DBD7A629251AE9007316F6 /* PagineBiancheReworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagineBiancheReworkUITests.swift; sourceTree = "<group>"; };
 		E7DBD7A829251AE9007316F6 /* PagineBiancheReworkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagineBiancheReworkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E7DBD7B529251F55007316F6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E7DBD7B8292523D9007316F6 /* SearchModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModal.swift; sourceTree = "<group>"; };
+		E7DBD7BB29254935007316F6 /* SpecialResearchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialResearchMainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +103,14 @@
 		E7DBD78429251AE8007316F6 /* PagineBiancheRework */ = {
 			isa = PBXGroup;
 			children = (
+				E7DBD7BA2925491B007316F6 /* SpecialResearch */,
 				E7DBD78529251AE8007316F6 /* PagineBiancheReworkApp.swift */,
-				E7DBD78729251AE8007316F6 /* Persistence.swift */,
 				E7DBD78C29251AE8007316F6 /* ContentView.swift */,
 				E7DBD78E29251AE9007316F6 /* Assets.xcassets */,
 				E7DBD79029251AE9007316F6 /* PagineBiancheRework.entitlements */,
 				E7DBD78929251AE8007316F6 /* PagineBiancheRework.xcdatamodeld */,
 				E7DBD79129251AE9007316F6 /* Preview Content */,
+				E7DBD7B7292523B7007316F6 /* Search */,
 			);
 			path = PagineBiancheRework;
 			sourceTree = "<group>";
@@ -133,6 +138,23 @@
 				E7DBD7A829251AE9007316F6 /* PagineBiancheReworkUITestsLaunchTests.swift */,
 			);
 			path = PagineBiancheReworkUITests;
+			sourceTree = "<group>";
+		};
+		E7DBD7B7292523B7007316F6 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E7DBD7B529251F55007316F6 /* SearchView.swift */,
+				E7DBD7B8292523D9007316F6 /* SearchModal.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E7DBD7BA2925491B007316F6 /* SpecialResearch */ = {
+			isa = PBXGroup;
+			children = (
+				E7DBD7BB29254935007316F6 /* SpecialResearchMainView.swift */,
+			);
+			path = SpecialResearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7DBD7B9292523D9007316F6 /* SearchModal.swift in Sources */,
+				E7DBD7BC29254935007316F6 /* SpecialResearchMainView.swift in Sources */,
+				E7DBD7B629251F55007316F6 /* SearchView.swift in Sources */,
 				E7DBD78B29251AE8007316F6 /* PagineBiancheRework.xcdatamodeld in Sources */,
 				E7DBD78629251AE8007316F6 /* PagineBiancheReworkApp.swift in Sources */,
 				E7DBD78D29251AE8007316F6 /* ContentView.swift in Sources */,
-				E7DBD78829251AE8007316F6 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
