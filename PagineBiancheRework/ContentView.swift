@@ -14,24 +14,35 @@ let height = UIScreen.main.bounds.height
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
-   /* @FetchRequest(
-        sortDescriptors: [],
-        animation: .default)
-    private var items: FetchedResults<Item>*/
+ 
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("buttonColor"))
+        UITabBar.appearance().unselectedItemTintColor = UIColor(Color("unselectedColor"))
+    }
 
     var body: some View {
-        ZStack{
-            TabView{
-                SearchView()
-                    .tabItem{Label("Search",systemImage: "magnifyingglass")}
-                SpecialResearchMainView()
-                    .tabItem{
-                        Label("Special Researches", systemImage: "sparkle.magnifyingglass")
-                    }
+        NavigationStack{
+            ZStack{
+                TabView{
+                    SearchView()
+                        .tabItem{Label("Search",systemImage: "magnifyingglass")}
+                    
+                    SpecialResearchMainView()
+                        .tabItem{Label("Special Researches", systemImage: "sparkle.magnifyingglass")}
+                    
+                    UsefulNumbersView()
+                        .tabItem {Label("Useful Numbers", systemImage: "phone.circle")}
+                    
+                    
+                }
+                .accentColor(.white)
+                
+                
+                
             }
-            
+            .frame(width: width, height: height)
         }
-        .frame(width: width, height: height)
     }
     
 
