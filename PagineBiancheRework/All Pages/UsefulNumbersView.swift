@@ -178,7 +178,7 @@ struct UsefulNumbersView: View {
         VStack{
             ZStack{
                 Rectangle()
-                    .foregroundColor(Color("buttonColor"))
+                    .foregroundColor(Color("primary"))
                 HStack{
                     Text("Useful Numbers")
                         .font(.title)
@@ -201,7 +201,7 @@ struct UsefulNumbersView: View {
                             .font(.title3)
                         Spacer()
                         Image(systemName: "chevron.right")
-                            .foregroundColor(Color("mainColor"))
+                            .foregroundColor(Color("primary"))
                             .rotationEffect(.degrees(listChevsDegrees[categories.firstIndex(of: cat) ?? 0]))
                     }
                     .contentShape(Rectangle())
@@ -256,7 +256,7 @@ struct UsefulNumbersView: View {
                                                 phoneNum = cat.phoneNumbers[cat.elements.firstIndex(of: el) ?? 0]
                                             }){
                                                 Image(systemName:"phone.connection.fill")
-                                                    .foregroundColor(Color("mainColor"))
+                                                    .foregroundColor(Color("primary"))
                                             }.alert(isPresented: $showingAlert){
                                                 Alert(title: Text("Do you want to call \(phoneNum)?"),
                                                       primaryButton: .default(Text("Call")),
@@ -267,7 +267,7 @@ struct UsefulNumbersView: View {
                                    
                                 }
                         }
-                        .listRowBackground(Color("listBG"))
+                       
                     }
                     .frame(width: width*0.9, height: listHeight[categories.firstIndex(of: cat) ?? 0])
                     .listStyle(.plain)
@@ -276,14 +276,15 @@ struct UsefulNumbersView: View {
                 .padding(.bottom, height*0.01)
                     
             }
-            .listRowBackground(Color("bg"))
+            
             .listRowSeparator(.hidden)
             .frame(width: width*0.9)
             Spacer()
            
             
         }
-        .background(Color("bg"))
+        .background(Color(UIColor.secondarySystemBackground))
+        
     }
 }
 

@@ -34,7 +34,7 @@ struct SpecialResearchMainView: View {
                 VStack{
                     ZStack{
                         Rectangle()
-                            .foregroundColor(Color("buttonColor"))
+                           .foregroundColor(Color("primary"))
                         HStack{
                             Text("Special Researches")
                                 .font(.title)
@@ -62,27 +62,23 @@ struct SpecialResearchMainView: View {
                                     {
                                         Image(systemName: favs.contains(where: {$0.name == special}) ? "star.slash" : "star")
                                     }
-                                    .tint(Color("favsColor"))
+                                    .tint(Color("primary"))
                                 }
                        }
-                        .listRowBackground(Color("listBG"))
+                       
                         
                        
                     }
-                    .cornerRadius(20)
-                    .frame(width: width*0.95)
+                    .cornerRadius(15)
+                    .frame(width: width * 0.95)
                     .padding(.top, height*0.02)
                     .scrollContentBackground(.hidden)
                     
                     
-                    
-                    
-                    
                 }
                 .frame(width: width, alignment: .top)
-                .background(Color("bg"))
                 .ignoresSafeArea()
-               
+                .background(Color(UIColor.secondarySystemBackground))
     }
 }
 

@@ -21,39 +21,49 @@ struct SearchView: View {
     ]
     
     @State private var isSearching = false
+    
+    @State var searchInfo1 = ""
+    @State var searchInfo2 = ""
+    @State var h : CGFloat = 0.0
+    
+    
 
     
     var body: some View {
             VStack{
-                ZStack{
-                    Rectangle()
-                        .foregroundColor(Color("buttonColor"))
-                    HStack{
-                        Text("Search")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                        Spacer()
-                        Button{
-                            isSearching.toggle()
-                        }label: {
-                            Image(systemName: "magnifyingglass")
+               
+                    ZStack{
+                        
+                        Rectangle()
+                            .foregroundColor(Color("primary"))
+                        HStack{
+                            Text("Search")
+                                .font(.title)
+                                .fontWeight(.bold)
                                 .foregroundColor(.white)
-                                .scaleEffect(width*0.004)
+                            Spacer()
+                           
+                            Button{
+                                withAnimation {
+                                  h = h == 0.0 ? height * 0.35 : 0.0
+                                }
+                                
+                            }label: {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.white)
+                                    .scaleEffect(width*0.004)
+                            }
+                            
+                            
                         }
-                        .sheet(isPresented: $isSearching){
-                            SearchModal()
-                                .presentationDetents([.medium])
-                        }
-                        
-                        
+                        .frame(width: width*0.9)
+                        .padding(.top, height*0.11)
+                        .padding(.bottom, height*0.012)
+                       
                     }
-                    .frame(width: width*0.9)
-                    .padding(.top, height*0.11)
-                    .padding(.bottom, height*0.012)
-                }
-                .frame(width: width, height: height*0.1)
-                
+                    .frame(width: width, height: height*0.1)
+                    .edgesIgnoringSafeArea(.top)
+                    
                 
                 List{
                     Section{
@@ -62,15 +72,21 @@ struct SearchView: View {
                                 Text(def)
                             })
                         }
-                        .listRowBackground(Color("listBG"))
+                        //.listRowBackground()
                     }header: {
-                        Text("Default")
+                        Text("DEFAULT")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("listSectionTitle"))
+                            
                     }
+                    
                     
                     Section{
                         ForEach(favs, id: \.self) { fav in
-                            NavigationLink(destination: HandleSelection(selected: fav.name ?? ""), label: {
+                            NavigationLink(destination: HandleSelection(selected: fav.name ?? "", defaultSearch: true), label: {
                                 Text(fav.name ?? "")
+                                    
                             })
                             .swipeActions(edge: .trailing, allowsFullSwipe: false){
                                 Button(action:{
@@ -81,27 +97,36 @@ struct SearchView: View {
                                 {
                                     Image(systemName: "star.slash")
                                 }
-                                .tint(Color("favsColor"))
+                                .tint(Color("primary"))
                                 
                             }
                        }
-                        .listRowBackground(Color("listBG"))
                         
                     }header: {
-                        Text("Favourites")
+                        Text("FAVOURITES")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color("listSectionTitle"))
                     }
                     .opacity(favs.count == 0 ? 0.0 : 1.0)
                     
                 }
-                .cornerRadius(20)
+                .cornerRadius(15)
                 .frame(width: width*0.95)
-                .padding(.top, height*0.05)
+                .padding(.trailing,width*0.01)
                 .scrollContentBackground(.hidden)
+                
+                SearchModal(h: $h)
+                    .frame(width: width, height: h)
+                    .padding(.top, height*0.02)
+                    .opacity(h == 0 ? 0.0 : 1.0)
+                    
+               
             }
             .frame(width: width)
-            .background(Color("bg"))
-            .blur(radius: isSearching ? 2 : 0)
-            .ignoresSafeArea()
+            //.blur(radius: isSearching ? 2 : 0)
+            .background(Color(UIColor.secondarySystemBackground))
+            
         
     }
     

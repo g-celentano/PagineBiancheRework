@@ -17,11 +17,13 @@ var NotSearchResult = [
 
 struct HandleSelection: View {
     var selected : String
+    var location : String = ""
+    var defaultSearch : Bool = false
     
     
     var body: some View {
         ZStack{
-            SearchResultView(selectedPage: selected)
+            SearchResultView(search: selected, location: location, defaultSearch: self.defaultSearch)
                 .opacity(NotSearchResult.contains(selected) ? 0.0 : 1.0)
             TaxCodeView()
                 .opacity(selected == "Calculate Tax Code" ? 1.0 : 0.0)
@@ -30,7 +32,7 @@ struct HandleSelection: View {
             NationalPrefixView()
                 .opacity(selected == "National Prefix" ? 1.0 : 0.0)
             InternationalPrefixView()
-                .opacity(selected == "Interational Prefix" ? 1.0 : 0.0)
+                .opacity(selected == "International Prefix" ? 1.0 : 0.0)
             ProceduresView()
                 .opacity(selected == "Procedures and Documents" ? 1.0 : 0.0)
         }
