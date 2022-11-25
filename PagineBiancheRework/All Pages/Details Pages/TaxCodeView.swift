@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension StringProtocol {
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
+
 struct TaxCodeView: View {
     @Environment(\.presentationMode) var presentationMode
     
@@ -19,7 +25,7 @@ struct TaxCodeView: View {
     @State var birthPlace : String = ""
     let vocals = ["A","E","I","O","U"]
     let cons = ["B","C","D","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z"]
-    let alph = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    let alph : [Character] = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     let pari = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
     let dispari = [1,0,5,7,9,13,15,17,19,21,2,4,18,20,11,3,6,8,12,14,16,10,22,25,24,23]
     
@@ -53,7 +59,7 @@ struct TaxCodeView: View {
                 
                 
                 Text(result.uppercased())
-                    .font(.title)
+                    .font(.caption)
                     .foregroundColor(Color("primary"))
                     .fontWeight(.semibold)
                     .tracking(5)
@@ -163,16 +169,31 @@ struct TaxCodeView: View {
                         let code = r.first(where: {$0.split(separator: ";")[0]==birthPlace})?.split(separator: ";")[4]
                         result += "\(code ?? "NULL")"
                         
+                        result = result.uppercased()
+                        
                         var last = 0
-                        /*for index in 0..<result.count {
+                        for index in 0..<result.count {
+                            let c : Character = result[index]
+                            
                             if index % 2 == 0{
-                                last += pari[alph.firstIndex(of: Array( result)[index]) ?? 0]
+                                if c.wholeNumberValue != nil && c.wholeNumberValue! < 10 {
+                                    last += c.wholeNumberValue!
+                                } else {
+                                    last += pari[alph.firstIndex(of: c) ?? 0]
+                                }
+                                
                             } else {
-                                last += dispari[alph.firstIndex(of: Array(result)[index]) ?? 0]
+                                if c.wholeNumberValue != nil && c.wholeNumberValue! < 10 {
+                                    last += dispari[c.wholeNumberValue!]
+                                } else {
+                                    last += dispari[alph.firstIndex(of: c) ?? 0]
+                                }
+                                
                             }
                         }
-                        let rest = Double(last) / 26.0
-                        result += alph[Int(rest)]*/
+                        let rest = last % 26
+                        
+                        result += "\(alph[rest])"
                         //does not work the calculus of the last letter of the tax code
                         
                         
